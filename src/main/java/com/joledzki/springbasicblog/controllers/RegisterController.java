@@ -30,6 +30,7 @@ public class RegisterController {
     @PostMapping("/add-user")
     public String addUser(User user){
         user.setPassword(securityPassword.passwordEncoder().encode(user.getPassword()));
+        user.setRole("ROLE_USER");
         userRepository.save(user);
         System.out.println("ADD USER: "+user);
         return "redirect:/register";
