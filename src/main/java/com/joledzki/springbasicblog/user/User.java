@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 import java.util.Collection;
 
 @Entity
@@ -16,6 +17,7 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Size(min=4, max=32, message = "Username must have from 4 to 32 chars")
     private String username;
     private String password;
     private String role;
