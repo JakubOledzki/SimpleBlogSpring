@@ -7,7 +7,7 @@
 <body>
     <h1>Register</h1>
     <form method="post" th:action="@{/add-user}" th:object="${user}">
-        Login: <input type="text" th:field="*{login}"/><br/>
+        Username: <input type="text" th:field="*{username}"/><br/>
         Password: <input type="password" th:field="*{password}"/><br/><br/>
         <input type="submit" value="Register"/>
     </form>

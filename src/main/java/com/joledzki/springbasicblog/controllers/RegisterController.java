@@ -1,6 +1,6 @@
 package com.joledzki.springbasicblog.controllers;
 
-import com.joledzki.springbasicblog.model.User;
+import com.joledzki.springbasicblog.user.User;
 import com.joledzki.springbasicblog.repositories.UserRepository;
 import com.joledzki.springbasicblog.security.SecurityPassword;
 import org.springframework.beans.factory.annotation.Autowired;
