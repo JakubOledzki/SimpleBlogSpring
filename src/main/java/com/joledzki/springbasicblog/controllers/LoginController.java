@@ -22,6 +22,9 @@ public class LoginController {
         return "helloworld";
     }
 
+    @RequestMapping("/profil")
+    public String getProfil(){return "profil";}
+
     @GetMapping("/loginpage")
     public String getLoginPage(){
         return "loginpage";
