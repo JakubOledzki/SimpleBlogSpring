@@ -36,13 +36,16 @@ public class RegisterController {
     @PostMapping("/add-user")
     public String addUser(@Valid User user, BindingResult bindingResult, Model model){
 
-        if(bindingResult.hasErrors() || user.getPassword().length()<6){
-            if(user.getPassword().length()<6){
+        boolean isUser = userRepository.findByUsername(user.getUsername()).isPresent();
 
-//                bindingResult.addError(new ObjectError("password","Password must have from 6 to 32 chars"));
+        if(bindingResult.hasErrors() || user.getPassword().length()<6 || isUser){
+            if(isUser){
+                model.addAttribute("username_error","An account with this username already exists");
+            }
+            if(user.getPassword().length()<6){
                 model.addAttribute("password_error","Password must have from 6 to 32 chars");
             }
-            System.out.println("ERROR");
+            System.out.println("REGISTER ERROR");
             return "register";
         }
         else{
