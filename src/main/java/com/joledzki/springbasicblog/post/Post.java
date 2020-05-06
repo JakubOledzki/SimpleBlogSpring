@@ -1,8 +1,10 @@
 package com.joledzki.springbasicblog.post;
 
 import com.joledzki.springbasicblog.user.User;
+import org.springframework.data.annotation.CreatedDate;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Post {
@@ -54,6 +56,8 @@ public class Post {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 
     @Override
     public String toString() {

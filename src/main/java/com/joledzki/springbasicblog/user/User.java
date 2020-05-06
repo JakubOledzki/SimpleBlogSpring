@@ -20,14 +20,14 @@ public class User implements UserDetails {
     @Size(min=4, max=32, message = "Username must have from 4 to 32 chars")
     private String username;
     private String password;
-    private Role role;
+    private String role;
 
     @OneToMany(mappedBy = "user")
     private Set<Post> posts = new HashSet<>();
 
 
     public User() {}
-    public User(String username, String password, Role role){
+    public User(String username, String password, String role){
         this.username = username;
         this.password = password;
         this.role = role;
@@ -41,11 +41,11 @@ public class User implements UserDetails {
         this.username = username;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
 

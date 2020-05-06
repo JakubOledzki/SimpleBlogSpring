@@ -51,7 +51,7 @@ public class RegisterController {
         }
         else{
             user.setPassword(securityPassword.passwordEncoder().encode(user.getPassword()));
-            user.setRole(Role.ROLE_USER);
+            user.setRole(String.valueOf(Role.ROLE_USER));
 
             userRepository.save(user);
             System.out.println("ADD USER: "+user);
