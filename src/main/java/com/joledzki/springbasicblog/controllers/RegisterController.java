@@ -1,5 +1,6 @@
 package com.joledzki.springbasicblog.controllers;
 
+import com.joledzki.springbasicblog.user.Role;
 import com.joledzki.springbasicblog.user.User;
 import com.joledzki.springbasicblog.repositories.UserRepository;
 import com.joledzki.springbasicblog.security.SecurityPassword;
@@ -50,7 +51,7 @@ public class RegisterController {
         }
         else{
             user.setPassword(securityPassword.passwordEncoder().encode(user.getPassword()));
-            user.setRole("ROLE_USER");
+            user.setRole(Role.ROLE_USER);
 
             userRepository.save(user);
             System.out.println("ADD USER: "+user);

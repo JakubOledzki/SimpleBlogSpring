@@ -28,8 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/register","/loginpage","/").permitAll()
-                .antMatchers("/hello","/profil","/addPost").authenticated()
+                .antMatchers("/register","/").permitAll()
+                .antMatchers("/addPost").authenticated()
                 .and()
                 .formLogin()
                 .successForwardUrl("/")
