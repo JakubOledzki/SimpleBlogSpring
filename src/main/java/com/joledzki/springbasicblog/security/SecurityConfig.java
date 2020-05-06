@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/hello","/profil","/addPost").authenticated()
                 .and()
                 .formLogin()
-                .successForwardUrl("/profil")
+                .successForwardUrl("/")
                 .and()
                 .logout();
     }

@@ -16,18 +16,5 @@ public class LoginController {
         this.userRepository = userRepository;
     }
 
-    //FOR TESTS
-    @RequestMapping("/hello")
-    public String getHello(){
-        return "helloworld";
-    }
-
-    @RequestMapping("/profil")
-    public String getProfil(){return "profil";}
-
-    @GetMapping("/loginpage")
-    public String getLoginPage(){
-        return "loginpage";
-    }
 
 }
