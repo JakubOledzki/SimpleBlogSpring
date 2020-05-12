@@ -57,7 +57,12 @@ public class Post {
         this.user = user;
     }
 
-
+    public boolean checkUserById(Long id){
+        if(this.user.getId() == id){
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public String toString() {

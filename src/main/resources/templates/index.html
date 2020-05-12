@@ -21,18 +21,18 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" th:if="${user == null}">
+                <li class="nav-item" th:if="${user.getUsername() == null}">
                     <a class="nav-link" th:href="@{/login}">Login</a>
                 </li>
-                <li class="nav-item" th:if="${user == null}">
+                <li class="nav-item" th:if="${user.getUsername() == null}">
                     <a class="nav-link" th:href="@{/register}">Register</a>
                 </li>
 
-                <li class="nav-item" th:if="${user != null}">
+                <li class="nav-item" th:if="${user.getUsername() != null}">
                     <a class="nav-link" th:href="@{/addPost}">Add Post</a>
                 </li>
 
-                <li class="nav-item" th:if="${user != null}">
+                <li class="nav-item" th:if="${user.getUsername() != null}">
                     <a class="nav-link" href="logout">Logout</a>
                 </li>
             </ul>
@@ -44,6 +44,7 @@
         <div class="row bg-light mt-3" th:each="post : ${posts}">
             <div class="col-12">
                 <b th:text="${post.getUser().getUsername()}">Username</b><br/>
+                    <span class="text-danger" th:if="${post.checkUserById(user.getId())}"><a th:href="@{'/deletepost/' + ${post.getId()}}">Delete</a></span>
                 <p class="lead" th:text="${post.getContent()}">Quality Content</p>
             </div>
         </div>
